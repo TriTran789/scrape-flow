@@ -17,11 +17,16 @@ const NotFoundPage = () => {
             href="/"
             className="flex items-center justify-center px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/80 transition-colors"
           >
-            <ArrowLeft className="size-4 mr-2" /> 
+            <ArrowLeft className="size-4 mr-2" />
             Back to Dashboard
           </Link>
         </div>
       </div>
+      <footer className="mt-12 text-center">
+        <p className="text-sm text-muted-foreground">
+          If you believe this is an error, please contact our support team.
+        </p>
+      </footer>
     </div>
   );
 };
