@@ -88,7 +88,7 @@ export const MobileSidebar = () => {
               <MenuIcon />
             </Button>
           </SheetTrigger>
-          <SheetContent className="w-[400px] sm:w-[540px] space-y-4">
+          <SheetContent className="w-[400px] sm:w-[540px] space-y-4" side={"left"}>
             <Logo />
             <div className="flex flex-col gap-1">
               {" "}
