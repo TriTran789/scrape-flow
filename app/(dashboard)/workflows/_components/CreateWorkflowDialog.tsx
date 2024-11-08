@@ -56,8 +56,8 @@ const CreateWorkflowDialog = ({ triggerText }: { triggerText?: string }) => {
     <Dialog
       open={open}
       onOpenChange={() => {
+        setOpen((prev) => !prev);
         form.reset();
-        setOpen(open);
       }}
     >
       <DialogTrigger asChild>
