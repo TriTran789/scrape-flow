@@ -65,6 +65,12 @@ const UserWorkflows = async () => {
       </div>
     );
   }
+
+  return <div className="grid grid-cols-1 gap-4">
+    {workflows.map((workflow) => (
+      <WorkflowCard key={workflow.id} workflow={workflow} />
+    )}
+  </div>;
 };
 
 export default page;
