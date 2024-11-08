@@ -1,4 +1,7 @@
+import { GetWorkflowsForUser } from "@/actions/workflows/getWorkflowsForUset";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
+import { AlertCircle, InboxIcon } from "lucide-react";
 import React, { Suspense } from "react";
 
 const page = () => {
@@ -21,19 +24,44 @@ const page = () => {
 };
 
 const UserWorkflowsSkeleton = () => {
-    return (
-        <div className="space-y-2">
-            {[1, 2, 3, 4].map((i) => (
-                <Skeleton key={i} className="h-32 w-full" />
-            ))}
-        </div>
-    )
-}
+  return (
+    <div className="space-y-2">
+      {[1, 2, 3, 4].map((i) => (
+        <Skeleton key={i} className="h-32 w-full" />
+      ))}
+    </div>
+  );
+};
 
-const UserWorkflows = () => {
+const UserWorkflows = async () => {
+  const workflows = await GetWorkflowsForUser();
+  if (!workflows) {
     return (
-        <div></div>
+      <Alert variant={"destructive"}>
+        <AlertCircle className="size-4" />
+        <AlertTitle>Error</AlertTitle>
+        <AlertDescription>
+          Something went wrong. Please try again later
+        </AlertDescription>
+      </Alert>
+    );
+  }
+
+  if (workflows.length === 0) {
+    return (
+      <div className="flex flex-col gap-4 h-full items-center justify-center">
+        <div className="rounded-full bg-accent size-20 flex items-center justify-center">
+          <InboxIcon size={40} className="stroke-primary" />
+        </div>
+        <div className="flex flex-col gap-1 text-center">
+          <p className="font-bold">No workflow created yet</p>
+          <p className="text-sm text-muted-foreground">
+            Click the button below to create your first workflow
+          </p>
+        </div>
+      </div>
     )
-}
+  }
+};
 
 export default page;
