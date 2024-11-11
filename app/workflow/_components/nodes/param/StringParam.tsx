@@ -15,7 +15,7 @@ const StringParam = ({ param, value, updateNodeParamValue }: ParamProps) => {
       </Label>
       <Input
         id={id}
-        defaultValue={value}
+        value={value}
         placeholder="Enter value here"
         onChange={(e) => updateNodeParamValue(e.target.value)}
       />
