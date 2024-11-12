@@ -16,7 +16,7 @@ model Workflow {
   name        String
   description String?
 
-  definitoin String
+  definition String
   status     String
 
   createdAt DateTime @default(now())
